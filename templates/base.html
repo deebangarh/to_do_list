@@ -4,13 +4,13 @@
     <title>I am trying Django hurrrayyyy </title>
   </head>
   <body>
-    <h1>this is a navbar</h1>
+    {% include 'navbar.html' %}
     {% block content %}
     replace me  <!-- tjust copy and paste to the other html files and replace it with that specific html code -->
     {% endblock %}
 
     {% block content_side %}
-    <h1>fwef</h1>  <!-- tjust copy and paste to the other html files and replace it with that specific html code -->
+    <h1>hello world</h1>  <!-- tjust copy and paste to the other html files and replace it with that specific html code -->
     {% endblock %}
 
   </body>
