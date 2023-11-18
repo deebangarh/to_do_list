@@ -9,7 +9,8 @@ def home_view(request, *args, **kwargs): #python lets u pass any arguements and 
 def contact_view(request, *args, **kwargs): #python lets u pass any arguements and key arguements
     my_context = {
         "my_name" : "Deepika",
-        "my_city" : 30
+        "my_city" : 30,
+        "my_list" : [1,2,34,43443]
             }
     return render(request, "contact.html", my_context)
     #the keys eg my_name becomes the template variables to be used in the html files
