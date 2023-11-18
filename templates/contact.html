@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
 {% block content %} <!-- block is djano and content is the variable i create -->
+<h3>{{title|capfirst|upper}},</h3>
 <p>
-  {{my_name}}, {{my_city}},
+ {{my_city}},
   {{my_list}} <!--context variable inside the double curly brackets-->
 </p>
-
+{{my_html|striptags}}
 <ul>
 {% for items_in_list in my_list %}
+{% if items_in_list == 5%}
+<li>{{forloop.counter}} - {{items_in_list|add:22}}</li>
 
-<li>{{forloop.counter}} - {{items_in_list}}</li>
+{%endif%}
 {% endfor %}
 </ul>
 {% endblock content %}
