@@ -7,7 +7,12 @@ def home_view(request, *args, **kwargs): #python lets u pass any arguements and 
     return render(request, "home.html", {}) # to render the above and for it create a template folder
 
 def contact_view(request, *args, **kwargs): #python lets u pass any arguements and key arguements
-    return render(request, "contact.html", {})
+    my_context = {
+        "my_name" : "Deepika",
+        "my_city" : 30
+            }
+    return render(request, "contact.html", my_context)
+    #the keys eg my_name becomes the template variables to be used in the html files
 
 def about_view(request, *args, **kwargs): #python lets u pass any arguements and key arguements
     return render(request, "about.html", {})
