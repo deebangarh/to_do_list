@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<form method = 'POST'>{%csrf_token %}
+  {{form.as_p}}
+  <input type = 'submit' value = 'Save' />
+</form>
+{% endblock%}
+
+<!--When you include {{ form.as_p }} in your template, it will iterate over all the fields in the form and render each field wrapped in a paragraph tag. For example,
+  if you have a form with fields like "name," "email," and "message," {{ form.as_p }} would render something like:-->
