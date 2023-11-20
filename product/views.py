@@ -4,6 +4,20 @@ from .forms import ProductForm, RawProductForm #(to render the django form)
 
 from .models import Product
 
+def render_initial_data(request):
+    initial_data ={
+        'title' : "My this awesome title"
+    }
+    obj = Product.objects.get(id=2)
+    form = ProductForm(request.POST or None, instance = obj)
+    if form.is_valid():
+      form.save()
+    context = {
+    'form' : form
+
+    }
+    return render (request,"products/product_create.html", context)
+
 # def product_create_view(request): #keep the functions lower case and diff from the class
 #  my_form = RawProductForm(request.GET)
 #  if request.method == "POST":
