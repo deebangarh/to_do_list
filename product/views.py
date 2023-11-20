@@ -1,11 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .forms import ProductForm, RawProductForm #(to render the django form)
 
 from .models import Product
 
-def dynamic_lookup_view(request,my_id):
-    obj = Product.objects.get(id=my_id)
+def dynamic_lookup_view(request,id):
+    # obj = Product.objects.get(id=my_id)
+    obj = get_object_or_404(Product,id=id)
     context = {
       "object" :  obj
     }
