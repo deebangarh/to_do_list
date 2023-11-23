@@ -1,19 +1,26 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 
 from .forms import ProductForm, RawProductForm #(to render the django form)
 
 from .models import Product
 
-def dynamic_lookup_view(request,id):
-    # obj = Product.objects.get(id=my_id)
-    obj = get_object_or_404(Product,id=id)
+def dynamic_lookup_view(request,my_id):
+    obj = Product.objects.get(id=my_id)
+    obj = get_object_or_404(Product,id=my_id)
     context = {
       "object" :  obj
     }
     return render (request,"products/product_detail.html", context)
 
-
-
+def product_delete_view(request,my_id):
+    obj = get_object_or_404(Product,id=my_id)
+    if request.method == 'POST':
+      obj.delete()
+      return redirect('../../../')
+    context = {
+      "object" :  obj
+    }
+    return render (request,"products/product_delete.html", context)
 
 def render_initial_data(request):
     initial_data ={
